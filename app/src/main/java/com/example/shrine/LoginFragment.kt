@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 
@@ -53,7 +53,7 @@ class LoginFragment : Fragment() {
 
             } else {
 
-                Toast.makeText(context, "Logging In", Toast.LENGTH_SHORT).show()
+                navigateToProductGridFragment()
 
             }
 
@@ -69,5 +69,9 @@ class LoginFragment : Fragment() {
     private fun getPassword() = tilPassword.editText?.text.toString()
 
     private fun isPasswordValid(password: String) = password.length < 8
+
+    private fun navigateToProductGridFragment() {
+        findNavController().navigate(R.id.action_loginFragment_to_productGridFragment)
+    }
 
 }
