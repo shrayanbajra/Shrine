@@ -26,11 +26,15 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initViews(view)
+
+    }
+
+    private fun initViews(view: View) {
         tilUsername = view.findViewById(R.id.til_username)
         tilPassword = view.findViewById(R.id.til_password)
 
         btnNext = view.findViewById(R.id.btn_next)
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -49,7 +53,7 @@ class LoginFragment : Fragment() {
 
             if (isPasswordValid(password)) {
 
-                tilPassword.error = getString(R.string.password_error_message)
+                showError()
 
             } else {
 
@@ -69,6 +73,10 @@ class LoginFragment : Fragment() {
     private fun getPassword() = tilPassword.editText?.text.toString()
 
     private fun isPasswordValid(password: String) = password.length < 8
+
+    private fun showError() {
+        tilPassword.error = getString(R.string.password_error_message)
+    }
 
     private fun navigateToProductGridFragment() {
         findNavController().navigate(R.id.action_loginFragment_to_productGridFragment)
