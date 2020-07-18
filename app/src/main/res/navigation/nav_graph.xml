@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/productGridFragment"
-        android:name="com.example.shrine.ProductGridFragment"
+        android:name="com.example.shrine.productgrid.ProductGridFragment"
         android:label="fragment_product_grid"
         tools:layout="@layout/fragment_product_grid" />
 </navigation>

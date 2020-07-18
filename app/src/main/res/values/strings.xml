@@ -11,4 +11,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_search">Search</string>
     <string name="title_filter">Filter</string>
+    <string name="product_image">Product Image</string>
+    <string name="product_title">Product Title</string>
+    <string name="product_price">Product Price</string>
 </resources>
