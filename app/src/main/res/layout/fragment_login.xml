@@ -8,6 +8,7 @@
 
     <ImageView
         android:id="@+id/img_app_logo"
+        android:tint="@color/colorPrimaryText"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
@@ -75,7 +76,7 @@
         style="@style/Widget.Shrine.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/next"
         app:layout_constraintEnd_toEndOf="@+id/til_password"
         app:layout_constraintTop_toBottomOf="@+id/til_password" />
