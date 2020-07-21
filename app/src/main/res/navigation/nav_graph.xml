@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.shrine.LoginFragment"
+        android:name="com.example.shrine.ui.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/productGridFragment"
-        android:name="com.example.shrine.productgrid.ProductGridFragment"
+        android:name="com.example.shrine.ui.productgrid.ProductGridFragment"
         android:label="fragment_product_grid"
         tools:layout="@layout/fragment_product_grid" />
 </navigation>

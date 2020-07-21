@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--Primary and Accent-->
     <color name="colorPrimary">#FEDBD0</color>
     <color name="colorPrimaryDark">#FBB8AC</color>
     <color name="colorPrimaryLight">#FEEAE6</color>
     <color name="colorAccent">#442C2E</color>
+
     <color name="loginPageBackgroundColor">#FFFFFF</color>
     <color name="textInputOutlineColor">#FBB8AC</color>
     <color name="productGridBackgroundColor">#FFFFFF</color>
     <color name="colorToolbarIcon">@color/colorPrimaryText</color>
+
+    <!--Text-->
     <color name="colorPrimaryText">#442C2E</color>
     <color name="colorSecondaryText">#442C2E</color>
+
     <color name="colorIcons">#442C2E</color>
     <color name="colorDivider">#442C2E</color>
 </resources>

@@ -1,7 +1,8 @@
-package com.example.shrine
+package com.example.shrine.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.shrine.R
 
 class NavHostActivity : AppCompatActivity() {
 

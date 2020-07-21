@@ -1,4 +1,4 @@
-package com.example.shrine.productgrid
+package com.example.shrine.ui.productgrid
 
 import android.os.Bundle
 import android.view.*
