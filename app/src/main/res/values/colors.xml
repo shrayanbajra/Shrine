@@ -8,8 +8,8 @@
     <color name="colorAccent">#442C2E</color>
 
     <color name="colorToolbarIcon">@color/colorPrimaryText</color>
+    <color name="colorTextInputOutline">#FBB8AC</color>
     <color name="loginPageBackgroundColor">#FFFFFF</color>
-    <color name="textInputOutlineColor">#FBB8AC</color>
     <color name="productGridBackgroundColor">#FFFFFF</color>
 
     <!--Text-->
