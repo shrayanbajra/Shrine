@@ -7,14 +7,14 @@
     <color name="colorPrimaryLight">#FEEAE6</color>
     <color name="colorAccent">#442C2E</color>
 
-    <color name="colorToolbarIcon">@color/colorPrimaryText</color>
-    <color name="colorTextInputOutline">#FBB8AC</color>
+    <color name="toolbarIconColor">@color/primaryTextColor</color>
+    <color name="textInputOutlineColor">#FBB8AC</color>
     <color name="loginPageBackgroundColor">#FFFFFF</color>
     <color name="productGridBackgroundColor">#FFFFFF</color>
 
     <!--Text-->
-    <color name="colorPrimaryText">#442C2E</color>
-    <color name="colorSecondaryText">#442C2E</color>
+    <color name="primaryTextColor">#442C2E</color>
+    <color name="secondaryTextColor">#442C2E</color>
 
     <color name="colorIcons">#442C2E</color>
     <color name="colorDivider">#442C2E</color>

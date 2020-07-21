@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/img_app_logo"
-        android:tint="@color/colorPrimaryText"
+        android:tint="@color/primaryTextColor"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
