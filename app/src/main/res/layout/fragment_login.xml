@@ -8,7 +8,6 @@
 
     <ImageView
         android:id="@+id/img_app_logo"
-        android:tint="@color/primaryTextColor"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
@@ -16,6 +15,7 @@
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/shr_logo_content_description"
         android:src="@drawable/shr_logo"
+        android:tint="@color/primaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/app_name"
-        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Shrine.Title"
         app:layout_constraintEnd_toEndOf="@+id/img_app_logo"
         app:layout_constraintStart_toStartOf="@+id/img_app_logo"
         app:layout_constraintTop_toBottomOf="@+id/img_app_logo" />

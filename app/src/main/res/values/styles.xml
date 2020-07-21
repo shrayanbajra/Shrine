@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -9,18 +10,20 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
-    <!--Toolbar-->
-    <style name="Widget.Shrine.Toolbar" parent="Widget.AppCompat.Toolbar">
-        <item name="android:background">?attr/colorPrimary</item>
-        <item name="android:theme">@style/AppTheme</item>
-        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="android:textColorPrimary">@color/primaryTextColor</item>
-        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
-        <item name="android:titleTextAppearance">@style/TextAppearance.Shrine.Toolbar</item>
+    <!--Button-->
+    <style name="Widget.Shrine.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="backgroundTint">?attr/colorPrimaryDark</item>
     </style>
 
-    <style name="TextAppearance.Shrine.Toolbar" parent="TextAppearance.MaterialComponents.Button">
-        <item name="android:textSize">16sp</item>
+    <style name="Widget.Shrine.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Shrine.Title" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
     <!--TextInputLayout-->
@@ -35,14 +38,18 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
-    <!--Button-->
-    <style name="Widget.Shrine.Button" parent="Widget.MaterialComponents.Button">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="backgroundTint">?attr/colorPrimaryDark</item>
+    <!--Toolbar-->
+    <style name="Widget.Shrine.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:theme">@style/AppTheme</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
+        <item name="android:titleTextAppearance">@style/TextAppearance.Shrine.Toolbar</item>
     </style>
 
-    <style name="Widget.Shrine.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    <style name="TextAppearance.Shrine.Toolbar" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textSize">16sp</item>
     </style>
 
 </resources>
