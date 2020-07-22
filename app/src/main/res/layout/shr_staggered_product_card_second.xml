@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/product_image"
+            android:id="@+id/img_product_image"
             android:layout_width="match_parent"
             android:layout_height="@dimen/shr_staggered_product_grid_card_height_landscape"
             android:background="?attr/colorPrimaryDark"
@@ -30,7 +30,7 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/product_title"
+                android:id="@+id/tv_product_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/product_title"
@@ -38,7 +38,7 @@
                 android:textAppearance="?attr/textAppearanceSubtitle2" />
 
             <TextView
-                android:id="@+id/product_price"
+                android:id="@+id/tv_product_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/product_price"

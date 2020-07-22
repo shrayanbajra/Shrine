@@ -12,12 +12,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.shrine.R
 import com.example.shrine.data.Product
 import com.example.shrine.ui.productgrid.adapters.ProductGridAdapter
+import com.example.shrine.ui.productgrid.adapters.StaggeredProductCardAdapter
 
 class ProductGridFragment : Fragment() {
 
     private lateinit var rvProducts: RecyclerView
-    private val productGridAdapter =
-        ProductGridAdapter()
+    private val productGridAdapter = ProductGridAdapter()
+    private val staggeredGridAdapter = StaggeredProductCardAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,23 +49,45 @@ class ProductGridFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initRvProducts(view)
-        val dummyProducts = Product.getDummyProductList(resources)
-        productGridAdapter.addAll(products = dummyProducts)
 
     }
 
     private fun initRvProducts(view: View) {
         rvProducts = view.findViewById(R.id.rv_products)
         rvProducts.apply {
-            layoutManager = GridLayoutManager(
-                context, 2, RecyclerView.VERTICAL, false
+            val gridLayoutManager = GridLayoutManager(
+                context, 2, RecyclerView.HORIZONTAL, false
             )
-            adapter = productGridAdapter
+            gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+
+                override fun getSpanSize(position: Int): Int {
+
+                    return if (position % 3 == 2) 2 else 1
+
+                }
+            }
+            layoutManager = gridLayoutManager
+            adapter = staggeredGridAdapter
+
+            val largePadding = resources
+                .getDimensionPixelSize(R.dimen.shr_staggered_product_grid_spacing_large)
+            val smallPadding = resources
+                .getDimensionPixelSize(R.dimen.shr_staggered_product_grid_spacing_small)
+
+            addItemDecoration(ProductGridItemDecoration(largePadding, smallPadding))
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 background = context?.getDrawable(R.drawable.product_grid_background_shape)
             }
         }
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        val dummyProducts = Product.getDummyProductList(resources)
+        productGridAdapter.addAll(products = dummyProducts)
+        staggeredGridAdapter.addAll(products = dummyProducts)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
