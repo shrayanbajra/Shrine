@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shrine.R
 import com.example.shrine.data.Product
+import com.example.shrine.ui.NavigationIconClickListener
 import com.example.shrine.ui.productgrid.adapters.ProductGridAdapter
 import com.example.shrine.ui.productgrid.adapters.StaggeredProductCardAdapter
 
@@ -33,6 +34,9 @@ class ProductGridFragment : Fragment() {
     private fun setToolbar(view: View) {
         val toolbar: Toolbar = view.findViewById(R.id.toolbar)
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        toolbar.setNavigationOnClickListener(
+            NavigationIconClickListener(requireContext(), rvProducts)
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,31 +59,39 @@ class ProductGridFragment : Fragment() {
     private fun initRvProducts(view: View) {
         rvProducts = view.findViewById(R.id.rv_products)
         rvProducts.apply {
-            val gridLayoutManager = GridLayoutManager(
-                context, 2, RecyclerView.HORIZONTAL, false
-            )
-            gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
 
-                override fun getSpanSize(position: Int): Int {
-
-                    return if (position % 3 == 2) 2 else 1
-
-                }
-            }
-            layoutManager = gridLayoutManager
+            layoutManager = getGridLayoutManager()
             adapter = staggeredGridAdapter
-
-            val largePadding = resources
-                .getDimensionPixelSize(R.dimen.shr_staggered_product_grid_spacing_large)
-            val smallPadding = resources
-                .getDimensionPixelSize(R.dimen.shr_staggered_product_grid_spacing_small)
-
-            addItemDecoration(ProductGridItemDecoration(largePadding, smallPadding))
+            addItemDecoration(getItemDecoration())
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 background = context?.getDrawable(R.drawable.product_grid_background_shape)
             }
         }
+    }
+
+    private fun getGridLayoutManager(): GridLayoutManager {
+        val gridLayoutManager = GridLayoutManager(
+            context, 2, RecyclerView.HORIZONTAL, false
+        )
+        gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+
+            override fun getSpanSize(position: Int): Int {
+
+                return if (position % 3 == 2) 2 else 1
+
+            }
+        }
+        return gridLayoutManager
+    }
+
+    private fun getItemDecoration(): ProductGridItemDecoration {
+        val largePadding = resources
+            .getDimensionPixelSize(R.dimen.shr_staggered_product_grid_spacing_large)
+        val smallPadding = resources
+            .getDimensionPixelSize(R.dimen.shr_staggered_product_grid_spacing_small)
+
+        return ProductGridItemDecoration(largePadding, smallPadding)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -107,5 +119,4 @@ class ProductGridFragment : Fragment() {
         }
 
     }
-
 }
