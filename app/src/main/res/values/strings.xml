@@ -14,4 +14,12 @@
     <string name="product_image">Product Image</string>
     <string name="product_title">Product Title</string>
     <string name="product_price">Product Price</string>
+    <string name="featured">Featured</string>
+    <string name="apartment">Apartment</string>
+    <string name="accessories">Accessories</string>
+    <string name="shoes">Shoes</string>
+    <string name="tops">Tops</string>
+    <string name="bottoms">Bottoms</string>
+    <string name="dresses">Dresses</string>
+    <string name="account">Account</string>
 </resources>
