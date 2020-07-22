@@ -1,4 +1,4 @@
 # Screenshots #
 
-![](images/Screenshot_1.jpg) \
-![](images/Screenshot_2.jpg)
+![](screenshots/Screenshot_1.jpg) \
+![](screenshots/Screenshot_2.jpg)
