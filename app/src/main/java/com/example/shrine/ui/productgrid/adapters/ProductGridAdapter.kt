@@ -1,4 +1,4 @@
-package com.example.shrine.ui.productgrid
+package com.example.shrine.ui.productgrid.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +23,9 @@ class ProductGridAdapter : RecyclerView.Adapter<ProductGridAdapter.ProductGridVi
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductGridViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_product_card, parent, false)
-        return ProductGridViewHolder(view)
+        return ProductGridViewHolder(
+            view
+        )
     }
 
     override fun getItemCount(): Int {

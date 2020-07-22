@@ -1,5 +1,6 @@
 package com.example.shrine.ui.productgrid
 
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -10,11 +11,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shrine.R
 import com.example.shrine.data.Product
+import com.example.shrine.ui.productgrid.adapters.ProductGridAdapter
 
 class ProductGridFragment : Fragment() {
 
     private lateinit var rvProducts: RecyclerView
-    private val productGridAdapter = ProductGridAdapter()
+    private val productGridAdapter =
+        ProductGridAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,6 +60,10 @@ class ProductGridFragment : Fragment() {
                 context, 2, RecyclerView.VERTICAL, false
             )
             adapter = productGridAdapter
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                background = context?.getDrawable(R.drawable.product_grid_background_shape)
+            }
         }
     }
 

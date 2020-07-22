@@ -10,7 +10,7 @@
     <color name="toolbarIconColor">@color/primaryTextColor</color>
     <color name="textInputOutlineColor">#FBB8AC</color>
     <color name="loginPageBackgroundColor">#FFFFFF</color>
-    <color name="productGridBackgroundColor">#FFFFFF</color>
+    <color name="productGridBackgroundColor">#FFFBFA</color>
 
     <!--Text-->
     <color name="primaryTextColor">#442C2E</color>
