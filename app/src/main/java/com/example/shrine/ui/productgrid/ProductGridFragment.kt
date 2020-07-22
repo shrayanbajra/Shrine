@@ -3,6 +3,7 @@ package com.example.shrine.ui.productgrid
 import android.os.Build
 import android.os.Bundle
 import android.view.*
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -16,6 +17,8 @@ import com.example.shrine.ui.productgrid.adapters.ProductGridAdapter
 import com.example.shrine.ui.productgrid.adapters.StaggeredProductCardAdapter
 
 class ProductGridFragment : Fragment() {
+
+    private lateinit var toolbar: Toolbar
 
     private lateinit var rvProducts: RecyclerView
     private val productGridAdapter = ProductGridAdapter()
@@ -32,11 +35,8 @@ class ProductGridFragment : Fragment() {
     }
 
     private fun setToolbar(view: View) {
-        val toolbar: Toolbar = view.findViewById(R.id.toolbar)
+        toolbar = view.findViewById(R.id.toolbar)
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
-        toolbar.setNavigationOnClickListener(
-            NavigationIconClickListener(requireContext(), rvProducts)
-        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -100,6 +100,18 @@ class ProductGridFragment : Fragment() {
         val dummyProducts = Product.getDummyProductList(resources)
         productGridAdapter.addAll(products = dummyProducts)
         staggeredGridAdapter.addAll(products = dummyProducts)
+
+        navigationIconClickListener()
+    }
+
+    private fun navigationIconClickListener() {
+        toolbar.setNavigationOnClickListener(
+            NavigationIconClickListener(
+                context = requireContext(),
+                sheet = rvProducts,
+                interpolator = AccelerateDecelerateInterpolator()
+            )
+        )
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
