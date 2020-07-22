@@ -112,7 +112,7 @@ class ProductGridFragment : Fragment() {
                 sheet = rvProducts,
                 interpolator = AccelerateDecelerateInterpolator(),
                 openIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_branded_menu),
-                closeIcon = ContextCompat.getDrawable(requireContext(), R.drawable.shr_close_menu)
+                closeIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_close_menu)
             )
         )
     }

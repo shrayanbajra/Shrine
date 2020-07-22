@@ -14,7 +14,7 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/shr_logo_content_description"
-        android:src="@drawable/shr_logo"
+        android:src="@drawable/app_logo"
         android:tint="@color/primaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
