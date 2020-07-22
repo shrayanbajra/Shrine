@@ -7,6 +7,7 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -109,7 +110,9 @@ class ProductGridFragment : Fragment() {
             NavigationIconClickListener(
                 context = requireContext(),
                 sheet = rvProducts,
-                interpolator = AccelerateDecelerateInterpolator()
+                interpolator = AccelerateDecelerateInterpolator(),
+                openIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_branded_menu),
+                closeIcon = ContextCompat.getDrawable(requireContext(), R.drawable.shr_close_menu)
             )
         )
     }

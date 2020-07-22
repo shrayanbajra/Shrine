@@ -21,7 +21,9 @@
             style="@style/Widget.Shrine.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:navigationIcon="@drawable/ic_menu"
+
+            app:contentInsetStart="0dp"
+            app:navigationIcon="@drawable/ic_branded_menu"
             app:title="@string/app_name"
             app:titleTextColor="@color/primaryTextColor" />
 
