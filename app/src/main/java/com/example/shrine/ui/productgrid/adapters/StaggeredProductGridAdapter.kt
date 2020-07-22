@@ -14,8 +14,8 @@ import com.example.shrine.data.Product
  * Adapter used to show an asymmetric grid of products, with 2 items in the first column, and 1
  * item in the second column, and so on.
  */
-class StaggeredProductCardAdapter() :
-    RecyclerView.Adapter<StaggeredProductCardAdapter.StaggeredProductCardViewHolder>() {
+class StaggeredProductGridAdapter() :
+    RecyclerView.Adapter<StaggeredProductGridAdapter.StaggeredProductCardViewHolder>() {
 
     private val productList = arrayListOf<Product>()
 

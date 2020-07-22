@@ -15,7 +15,7 @@ import com.example.shrine.R
 import com.example.shrine.data.Product
 import com.example.shrine.ui.NavigationIconClickListener
 import com.example.shrine.ui.productgrid.adapters.ProductGridAdapter
-import com.example.shrine.ui.productgrid.adapters.StaggeredProductCardAdapter
+import com.example.shrine.ui.productgrid.adapters.StaggeredProductGridAdapter
 
 class ProductGridFragment : Fragment() {
 
@@ -23,7 +23,7 @@ class ProductGridFragment : Fragment() {
 
     private lateinit var rvProducts: RecyclerView
     private val productGridAdapter = ProductGridAdapter()
-    private val staggeredGridAdapter = StaggeredProductCardAdapter()
+    private val staggeredGridAdapter = StaggeredProductGridAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
