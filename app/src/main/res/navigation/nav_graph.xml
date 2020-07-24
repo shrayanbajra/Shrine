@@ -10,15 +10,20 @@
         android:name="com.example.shrine.ui.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
+
         <action
             android:id="@+id/action_loginFragment_to_productGridFragment"
             app:destination="@id/productGridFragment"
-            app:enterAnim="@anim/enter_right"
-            app:exitAnim="@anim/exit_left" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+
     <fragment
         android:id="@+id/productGridFragment"
         android:name="com.example.shrine.ui.productgrid.ProductGridFragment"
         android:label="fragment_product_grid"
         tools:layout="@layout/fragment_product_grid" />
+
 </navigation>
