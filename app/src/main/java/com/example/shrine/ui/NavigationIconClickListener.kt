@@ -9,7 +9,6 @@ import android.util.DisplayMetrics
 import android.view.View
 import android.view.animation.Interpolator
 import android.widget.ImageView
-import com.example.shrine.R
 
 /**
  * [android.view.View.OnClickListener] used to translate the product grid sheet downward on
@@ -24,39 +23,34 @@ class NavigationIconClickListener @JvmOverloads internal constructor(
 ) : View.OnClickListener {
 
     private val animatorSet = AnimatorSet()
-    private val height: Int
-    private var backdropShown = false
+    private var isBackdropShown = false
 
     init {
         val displayMetrics = DisplayMetrics()
         (context as Activity).windowManager.defaultDisplay.getMetrics(displayMetrics)
-        height = displayMetrics.heightPixels
     }
 
     override fun onClick(view: View) {
-        backdropShown = !backdropShown
 
+        isBackdropShown = !isBackdropShown
+
+        cancelAnimation()
+
+        updateIcon(view)
+
+        val translateY = getValueForTranslateY()
+
+        val animator = getAnimator(translateY)
+
+        animatorSet.play(animator)
+        animator.start()
+    }
+
+    private fun cancelAnimation() {
         // Cancel the existing animations
         animatorSet.removeAllListeners()
         animatorSet.end()
         animatorSet.cancel()
-
-        updateIcon(view)
-
-        val translateY =
-            height - context.resources.getDimensionPixelSize(R.dimen.shr_product_grid_reveal_height)
-
-        val animator = ObjectAnimator.ofFloat(
-            sheet,
-            "translationY",
-            (if (backdropShown) translateY else 0).toFloat()
-        )
-        animator.duration = 500
-        if (interpolator != null) {
-            animator.interpolator = interpolator
-        }
-        animatorSet.play(animator)
-        animator.start()
     }
 
     private fun updateIcon(view: View) {
@@ -64,11 +58,29 @@ class NavigationIconClickListener @JvmOverloads internal constructor(
             if (view !is ImageView) {
                 throw IllegalArgumentException("updateIcon() must be called on an ImageView")
             }
-            if (backdropShown) {
+            if (isBackdropShown) {
                 view.setImageDrawable(closeIcon)
             } else {
                 view.setImageDrawable(openIcon)
             }
         }
+    }
+
+    private fun getValueForTranslateY(): Double {
+        // 80 percent of screen height
+        return context.resources.displayMetrics.heightPixels * 0.80
+    }
+
+    private fun getAnimator(translateY: Double): ObjectAnimator {
+        val animator = ObjectAnimator.ofFloat(
+            sheet,
+            "translationY",
+            (if (isBackdropShown) translateY else 0.0).toFloat()
+        )
+        animator.duration = 500
+        if (interpolator != null) {
+            animator.interpolator = interpolator
+        }
+        return animator
     }
 }
