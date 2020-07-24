@@ -68,7 +68,8 @@ class LoginFragment : Fragment() {
     private fun isErrorShown(inputLayout: TextInputLayout) = inputLayout.isErrorEnabled
 
     private fun clearError(inputLayout: TextInputLayout) {
-        inputLayout.isErrorEnabled = false
+        val emptyString = ""
+        inputLayout.error = emptyString
     }
 
     private fun getPassword() = tilPassword.editText?.text.toString()
