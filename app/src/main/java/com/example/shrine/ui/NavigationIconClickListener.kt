@@ -67,8 +67,10 @@ class NavigationIconClickListener @JvmOverloads internal constructor(
     }
 
     private fun getValueForTranslateY(): Double {
-        // 80 percent of screen height
-        return context.resources.displayMetrics.heightPixels * 0.80
+        // 80 percent of total screen height
+        val totalScreenHeight = context.resources.displayMetrics.heightPixels
+        val eightyPercent = 0.80
+        return totalScreenHeight * eightyPercent
     }
 
     private fun getAnimator(translateY: Double): ObjectAnimator {
