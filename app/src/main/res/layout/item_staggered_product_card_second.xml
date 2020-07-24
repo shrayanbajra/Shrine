@@ -13,7 +13,6 @@
         android:layout_width="@dimen/shr_staggered_product_grid_card_width_landscape"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/shr_staggered_product_grid_spacing_small"
-        android:layout_marginRight="@dimen/shr_staggered_product_grid_spacing_small"
         android:orientation="vertical">
 
         <ImageView
@@ -21,7 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/shr_staggered_product_grid_card_height_landscape"
             android:background="?attr/colorPrimaryDark"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/product_image" />
 
         <LinearLayout
             android:layout_width="match_parent"
