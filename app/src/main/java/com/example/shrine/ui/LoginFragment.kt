@@ -48,24 +48,24 @@ class LoginFragment : Fragment() {
     private fun btnNextListener() {
         btnNext.setOnClickListener {
 
-            if (hasErrorEnabled(tilPassword)) clearError(tilPassword)
+            if (isErrorShown(tilPassword)) clearError(tilPassword)
 
             val password = getPassword()
 
             if (isPasswordValid(password)) {
 
-                showError()
+                navigateToProductGridFragment()
 
             } else {
 
-                navigateToProductGridFragment()
+                showError()
 
             }
 
         }
     }
 
-    private fun hasErrorEnabled(inputLayout: TextInputLayout) = inputLayout.isErrorEnabled
+    private fun isErrorShown(inputLayout: TextInputLayout) = inputLayout.isErrorEnabled
 
     private fun clearError(inputLayout: TextInputLayout) {
         inputLayout.isErrorEnabled = false
@@ -73,14 +73,14 @@ class LoginFragment : Fragment() {
 
     private fun getPassword() = tilPassword.editText?.text.toString()
 
-    private fun isPasswordValid(password: String) = password.length < 8
-
-    private fun showError() {
-        tilPassword.error = getString(R.string.password_error_message)
-    }
+    private fun isPasswordValid(password: String) = password.length >= 8 // at-least 8 characters
 
     private fun navigateToProductGridFragment() {
         findNavController().navigate(R.id.action_loginFragment_to_productGridFragment)
+    }
+
+    private fun showError() {
+        tilPassword.error = getString(R.string.password_error_message)
     }
 
 }
