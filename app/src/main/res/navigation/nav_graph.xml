@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_productGridFragment"
-            app:destination="@id/productGridFragment" />
+            app:destination="@id/productGridFragment"
+            app:enterAnim="@anim/enter_right"
+            app:exitAnim="@anim/exit_left" />
     </fragment>
     <fragment
         android:id="@+id/productGridFragment"
